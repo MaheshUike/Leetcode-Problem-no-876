@@ -1,0 +1,28 @@
+To solve this problem imagine two pointer fast pointer ad slow pointer fast pointer will move two indices at a time where slow pointer will move only one index at a time
+
+1   ->  2  -> 3   -> 4  ->  5  ->  6 -> null
+F             F             F           F
+step1         step2         step3       step4
+
+S       S     S      S
+
+st1     st2   st3     st4
+
+we can see here on step 4 fast pointer pointing the null node and slow pointer is pointing to the middle element
+
+var middleNode = function(head) {
+    let fast = head;
+    let slow = head;
+<!-- both node will start from the head so we initialize them with head -->
+
+    while(fast && fast.next){
+<!-- looping until fast node reaches the null node -->
+
+        fast = fast.next.next
+<!-- fast.next.next is use to reach step3 in above explanation  -->
+       
+         slow = slow.next
+<!-- to reach next node -->
+    }
+    return slow;
+};
